@@ -82,7 +82,7 @@ func (c *statCollector) Update(ch chan<- prometheus.Metric) error {
 
 	cpuTemp := getCPUTemps()
 
-	for cpu, t := range cpuTimes {
+	for cpu, t := range cpuTemp {
 		lcpu := strconv.Itoa(cpu)
 		ch <- c.temp.mustNewConstMetric(temp, lcpu)
 	}
