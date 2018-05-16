@@ -23,7 +23,7 @@ import (
 	"github.com/prometheus/client_golang/prometheus"
 )
 
-type statCollector struct {
+type cpuTemp struct {
 	cpu  typedDesc
 	temp typedDesc
 }
@@ -78,7 +78,7 @@ func NewStatCollector() (Collector, error) {
 }
 
 // Expose CPU stats using sysctl.
-func (c *statCollector) Update(ch chan<- prometheus.Metric) error {
+func (c *cpuTemp) Update(ch chan<- prometheus.Metric) error {
 
 	cpuTemp := getCPUTemps()
 
